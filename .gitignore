@@ -1,0 +1,13 @@
+# Python
+python/venv/
+
+# TypeScript
+typescript/node_modules/
+typescript/dist/
+
+# C#
+csharp/bin/
+csharp/obj/
+
+# General
+.DS_Store
