@@ -10,7 +10,7 @@ class Order():
         self.order_id = order_id
         self.customer = customer
         self.products : List[AbstractProduct] = []
-
+    
     def get_price(self) -> float:
         total_price = 0.0
         for product in self.products:
