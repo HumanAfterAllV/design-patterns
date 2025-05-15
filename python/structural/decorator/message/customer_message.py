@@ -16,7 +16,7 @@ class CustomerMessage(IMessage):
     def get_content(self) -> str:
         return self.to_string();
 
-    def set_content(self, content: str):
+    def set_content(self):
         raise NotImplementedError("Not supported yet.")
     
     
