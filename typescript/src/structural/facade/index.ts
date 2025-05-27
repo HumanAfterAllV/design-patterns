@@ -6,11 +6,11 @@ function main(): void {
         title: "The Rise of AI",
         slug: "the-rise-of-ai",
         content: `# Introduction
-Artificial Intelligence is changing the world.
-## Impact
-- Healthcare
-- Finance
-- Education`,
+                    Artificial Intelligence is changing the world.
+                    ## Impact
+                    - Healthcare
+                    - Finance
+                    - Education`,
         keywords: ["AI", "machine learning", "technology"],
         metaDescription: "This article explains the impact of AI across industries.",
         internalLinks: ["/ai-history", "/future-of-ai"]
