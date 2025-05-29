@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace Publisher.Slug
 {
-    public class Slug
+    public class Slugger
     {
         public string SlugGenerator(string title)
         {

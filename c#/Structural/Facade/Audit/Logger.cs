@@ -1,7 +1,7 @@
 
 namespace Audit.Logger
 {
-    public class Logger
+    public class Logger 
     {
         public void LoggerAction(string user, string action)
         {

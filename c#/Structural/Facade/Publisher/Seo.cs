@@ -9,7 +9,7 @@ namespace Publisher.Seo
         public List<string> MetaDescription { get; set; } = new List<string>();
         public List<string> InternalLinks { get; set; } = new List<string>();
     }
-    public class Seo
+    public class SeoSuggestions
     {
         public Suggestions SeoOptimizer(IArticle article)
         {

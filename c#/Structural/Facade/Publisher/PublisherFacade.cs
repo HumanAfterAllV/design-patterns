@@ -1,5 +1,8 @@
 using Interface.IArticle;
 using Audit.Logger;
+using Publisher.Seo;
+using Publisher.Slug;
+using Publisher.Storage;
 
 
 namespace Publisher.PublisherFacade
@@ -17,26 +20,25 @@ namespace Publisher.PublisherFacade
 
         public async Task Publish()
         {
-            var seo = new Seo.Seo();
-            var slugger = new Slug.Slug();
+            var seo = new SeoSuggestions();
+            var slugger = new Slugger();
             var logger = new Logger();
 
-            if(!Validator.Validator.Validate(this.article))
+            if(!Validator.Validator.Validate(article))
             {
                 Console.WriteLine("❌ Publicación cancelada: Artículo inválido");
                 return;
             }
 
-            this.article.Slug = slugger.SlugGenerator(this.article.Title);
+            article.Slug = slugger.SlugGenerator(article.Title);
+            _ = seo.SeoOptimizer(article);
 
-            var suggestions = seo.SeoOptimizer(this.article);
+            article.Html = HTMLConverter.HTMLConverter.PlainHtml(article.Content ?? "");
 
-            this.article.Html = Publisher.HTMLConverter.HTMLConverter.PlainHtml(this.article.Content ?? "");
+            await StorageDB.SaveToDB(article);
+            StorageDB.PublishToCDN(article);
 
-            await Publisher.Storage.Storage.SaveToDB(this.article);
-            Publisher.Storage.Storage.PublishToCDN(this.article);
-
-            logger.LoggerAction(this.user, "publish");
+            logger.LoggerAction(user, "publish");
         }
     }
 }

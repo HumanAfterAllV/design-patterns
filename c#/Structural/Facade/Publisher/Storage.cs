@@ -2,7 +2,7 @@ using Interface.IArticle;
 
 namespace Publisher.Storage
 {
-    public static class Storage
+    public static class StorageDB
     {
         public static async Task SaveToDB(IArticle article)
         {
