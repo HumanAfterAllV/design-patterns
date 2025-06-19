@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Creational.Singleton
+﻿namespace Creational.Singleton
 {
     public class Program
     {
@@ -17,9 +14,9 @@ namespace Creational.Singleton
             private static readonly Logger _instance = new Logger();
             private readonly List<string> logList = new List<string>();
 
-            // Private constructor to prevent instantiation
             private Logger()
             {
+                
             }
 
             public static Logger Instance => _instance;
